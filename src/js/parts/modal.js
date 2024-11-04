@@ -2,25 +2,33 @@ import scrollLock from 'scroll-lock';
 
 const activeModals = new Set();
 
+//* На випадок, якщо header - absolute
+// const header = document.querySelector('header');
+// const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+
 function showModal(modal) {
   modal.classList.add('isOpened', 'isAnimation');
   scrollLock.disablePageScroll(modal, { reserveScrollBarGap: true });
   activeModals.add(modal);
+
+  // header.style.paddingRight = `${scrollBarWidth}px`;
 }
 
 export function closeModal(modal) {
   modal.classList.remove('isOpened', 'isAnimation');
   scrollLock.enablePageScroll(modal);
   activeModals.delete(modal);
+
+  // header.style.paddingRight = '';
 }
 
 function initCloseModal(modal) {
-  const btnClose = modal.querySelector('.closeModal');
   const modalContainer = modal.querySelector('.containerModal');
+  const btnsCloseModal = modal.querySelectorAll('.closeModal');
 
-  if (btnClose) {
-    btnClose.addEventListener('click', () => closeModal(modal));
-  }
+  btnsCloseModal.forEach(btn => {
+    btn.addEventListener('click', () => closeModal(modal));
+  });
 
   if (modalContainer) {
     modalContainer.addEventListener('click', event => {
