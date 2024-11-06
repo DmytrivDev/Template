@@ -46,3 +46,30 @@ export const initSlider = (container, options = {}) => {
 
   updateSlideState();
 };
+
+// <section class="elem">
+//   <div class="splide">
+//     <div class="splide__track">
+//       <ul class="splide__list">
+//         <li class="splide__slide">
+//           <p>slide 1</p>
+//         </li>
+//         <li class="splide__slide">
+//           <p>slide 1</p>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+
+//   <div class="arrows">
+//     <div class="arrows__body">
+//       <button type="button" class="arrows__prev">
+//         <span>Назад</span>
+//       </button>
+//       <span class="arrows__number">1/1</span>
+//       <button type="button" class="arrows__next">
+//         <span>Далі</span>
+//       </button>
+//     </div>
+//   </div>
+// </section>;
