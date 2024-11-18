@@ -4,14 +4,20 @@ const activeModals = new Set();
 
 //* На випадок, якщо header - absolute
 // const header = document.querySelector('header');
-// const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+// function getScrollBarWidth() {
+//   const scrollBarWidth =
+//     window.innerWidth - document.documentElement.clientWidth;
+//   return scrollBarWidth;
+// }
+// window.addEventListener('resize', getScrollBarWidth);
 
 function showModal(modal) {
+  // header.style.paddingRight = `${getScrollBarWidth()}px`;
+
   modal.classList.add('isOpened', 'isAnimation');
   scrollLock.disablePageScroll(modal, { reserveScrollBarGap: true });
   activeModals.add(modal);
-
-  // header.style.paddingRight = `${scrollBarWidth}px`;
 }
 
 export function closeModal(modal) {
