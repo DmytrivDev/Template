@@ -5,7 +5,7 @@ const activeModals = new Set();
 //* На випадок, якщо header - absolute
 // const header = document.querySelector('header');
 
-// function getScrollBarWidth() {
+// export function getScrollBarWidth() {
 //   const scrollBarWidth =
 //     window.innerWidth - document.documentElement.clientWidth;
 //   return scrollBarWidth;

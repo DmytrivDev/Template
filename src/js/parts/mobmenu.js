@@ -1,5 +1,9 @@
 import scrollLock from 'scroll-lock';
 
+//* На випадок, якщо header - absolute
+// import { getScrollBarWidth } from './modal.js';
+// const header = document.querySelector('header');
+
 const headerMain = document.querySelector('.header__main');
 const burger = document.querySelector('.burger');
 const mobMenu = document.querySelector('.mobmenu');
@@ -31,6 +35,7 @@ function toggleMenu() {
   if (burger && mobMenu) {
     burger.classList.toggle('isOpened');
     mobMenu.classList.toggle('isOpened');
+    // header.style.paddingRight = `${getScrollBarWidth()}px`;
     toggleScrollLock();
   }
 }
@@ -39,6 +44,7 @@ function closeMenu() {
   if (burger && mobMenu) {
     burger.classList.remove('isOpened');
     mobMenu.classList.remove('isOpened');
+    // header.style.paddingRight = '';
     if (mobMenuBody) scrollLock.enablePageScroll(mobMenuBody);
     isScrollLocked = false;
   }
