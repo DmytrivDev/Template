@@ -31,16 +31,16 @@ body {
   margin: 0 auto;
 }
 
-/* --------- Adaptive tablet (1440px) --------- */
+/* --------- Adaptive desktop (1400px) --------- */
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1400px) {
   html,
   body {
     font-size: 1.16vw;
   }
 }
 
-/* --------- Adaptive desktop (960px) --------- */
+/* --------- Adaptive tablet (960px) --------- */
 
 @media screen and (max-width: 960px) {
   html,
@@ -57,7 +57,7 @@ body {
   }
 }
 
-/* --------- Adaptive desktop (772px) --------- */
+/* --------- Adaptive tablet (772px) --------- */
 
 // @media screen and (max-width: 772px) {
 //   html,
@@ -66,7 +66,7 @@ body {
 //   }
 // }
 
-/* --------- Adaptive desktop (500px) --------- */
+/* --------- Adaptive mobile (500px) --------- */
 
 @media screen and (max-width: 500px) {
   html,
@@ -75,7 +75,7 @@ body {
   }
 }
 
-/* --------- Adaptive desktop (375px) --------- */
+/* --------- Adaptive mobile (375px) --------- */
 
 @media screen and (max-width: 375px) {
   html,
