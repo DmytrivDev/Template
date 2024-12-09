@@ -5,7 +5,7 @@ function initCalcSpeedCarse() {
     const carousellPartF = bannerCarousell.querySelector('.carsePartF');
     const carousellPartS = bannerCarousell.querySelector('.carsePartS');
 
-    const listWidthPartF = carousellPartF.scrollWidth; // Повна ширина списку F
+    const listWidthPartF = carousellPartF.scrollWidth; // Повна ширина списку carsePartF
     const carousellWidth = bannerCarousell.clientWidth; // Ширина видимої області
 
     const moveValue = listWidthPartF - carousellWidth;
@@ -17,7 +17,7 @@ function initCalcSpeedCarse() {
     const speedFactor =
       parseFloat(bannerCarousell.getAttribute('data-speed')) || 1;
 
-    const calcSpeed = speedFactor * childrenCountF; // Розрахунок швидкості в залежності від кількості елементів списку F
+    const calcSpeed = speedFactor * childrenCountF; // Розрахунок швидкості в залежності від кількості елементів списку carsePartF
 
     carousellPartF.style.animationDelay = `-${calcSpeed}s`;
     carousellPartS.style.animationDelay = `-${calcSpeed / 2}s`;
