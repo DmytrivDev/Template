@@ -1,9 +1,18 @@
-@media screen and (max-width: 960px) {
+.header__main {
   .navmenu {
   }
 }
 
+@media screen and (max-width: 960px) {
+  .mobmenu {
+    .navmenu {
+    }
+  }
+}
+
 @media screen and (max-width: 500px) {
-  .navmenu {
+  .mobmenu {
+    .navmenu {
+    }
   }
 }
