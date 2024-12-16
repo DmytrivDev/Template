@@ -8,41 +8,54 @@ export const initSlider = (container, options = {}) => {
   const splide = new Splide(sliderElement, {
     type: 'slide',
     speed: 1000,
+    perMove: 1,
+    arrows: true,
     pagination: false,
     updateOnMove: true,
 
     ...options,
   }).mount();
 
-  const arrows = {
+  const navigationElems = {
     next: container.querySelector('.arrows__next'),
     prev: container.querySelector('.arrows__prev'),
     number: container.querySelector('.arrows__number'),
+    progressbar: container.querySelector('.progressbar__thumb'),
   };
+  const { next, prev, number, progressbar } = navigationElems;
 
   const updateSlideState = () => {
     const totalSlides = Math.ceil(
-      splide.Components.Slides.getLength() / splide.options.perPage
+      splide.Components.Elements.slides.length / splide.options.perPage
     );
     const currentIndex = Math.ceil(splide.index / splide.options.perPage) + 1;
 
     const isAtStart = splide.index === 0;
     const isAtEnd = splide.index === splide.Components.Controller.getEnd();
 
-    if (arrows.next && arrows.prev) {
-      arrows.next.disabled = isAtEnd;
-      arrows.prev.disabled = isAtStart;
-      arrows.next.classList.toggle('isDisabled', isAtEnd);
-      arrows.prev.classList.toggle('isDisabled', isAtStart);
+    if (next && prev) {
+      next.disabled = isAtEnd;
+      prev.disabled = isAtStart;
+      next.classList.toggle('isDisabled', isAtEnd);
+      prev.classList.toggle('isDisabled', isAtStart);
     }
 
-    if (arrows.number) {
-      arrows.number.textContent = `${currentIndex}/${totalSlides}`;
+    if (number) {
+      number.textContent = `${currentIndex}/${totalSlides}`;
+    }
+
+    if (progressbar) {
+      const totalSlides = splide.Components.Elements.slides.length + 1;
+      const progress =
+        (((splide.index + 1) % totalSlides) /
+          (totalSlides - splide.options.perPage)) *
+        100;
+      progressbar.style.width = `${progress}%`;
     }
   };
 
-  arrows.next?.addEventListener('click', () => splide.go('>'));
-  arrows.prev?.addEventListener('click', () => splide.go('<'));
+  next?.addEventListener('click', () => splide.go('>'));
+  prev?.addEventListener('click', () => splide.go('<'));
 
   if (splide.options.type === 'fade') {
     splide.on('moved', updateSlideState);
@@ -53,6 +66,8 @@ export const initSlider = (container, options = {}) => {
   window.addEventListener('resize', updateSlideState);
 
   updateSlideState();
+
+  return splide;
 };
 
 // <section class="elem">
@@ -80,4 +95,8 @@ export const initSlider = (container, options = {}) => {
 //       </button>
 //     </div>
 //   </div>
-// </section>;
+
+//   <div class="progressbar">
+//     <div class="progressbar__thumb"></div>
+//   </div>
+// </section>

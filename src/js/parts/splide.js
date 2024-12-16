@@ -21,3 +21,35 @@ import { initSlider } from './splidecust';
 //     },
 //   });
 // });
+
+// let elemSliderInstance;
+// const elem = document.querySelector('.elem');
+
+// const initOurproductSlider = () => {
+//   if (elem && !elemSliderInstance) {
+//     elemSliderInstance = initSlider(elem, {
+//       perPage: 2,
+//       breakpoints: {
+//         960: {},
+//         500: {},
+//       },
+//     });
+//   }
+// };
+
+// const destroySliders = () => {
+//   if (elemSliderInstance) {
+//     elemSliderInstance.destroy();
+//     elemSliderInstance = null;
+//   }
+// };
+
+// const checkViewport = () => {
+//   initOurproductSlider();
+//   if (window.innerWidth > 960) {
+//     destroySliders();
+//   }
+// };
+
+// checkViewport();
+// window.addEventListener('resize', checkViewport);
