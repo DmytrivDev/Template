@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@splidejs/splide": "^4.1.4",
+    "accordion-js": "^3.3.4",
     "imask": "^7.6.1",
     "scroll-lock": "^2.1.5",
     "vite-plugin-full-reload": "^1.1.0",
