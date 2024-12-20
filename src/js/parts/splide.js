@@ -51,5 +51,5 @@ import { initSlider } from './splidecust';
 //   }
 // };
 
-// checkViewport();
 // window.addEventListener('resize', checkViewport);
+// document.addEventListener('DOMContentLoaded', checkViewport);

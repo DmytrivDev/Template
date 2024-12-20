@@ -1,7 +1,11 @@
 .header {
+  position: relative;
+  // position: sticky;
+  // top: 0;
   &__main {
     position: relative;
     z-index: 110;
+    background-color: var(--cw);
   }
 }
 
