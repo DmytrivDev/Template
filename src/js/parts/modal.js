@@ -1,6 +1,7 @@
 import scrollLock from 'scroll-lock';
 
 const activeModals = new Set();
+const initializedModals = new WeakSet();
 
 function showModal(modal) {
   modal.classList.add('isOpened', 'isAnimation');
@@ -15,6 +16,8 @@ export function closeModal(modal) {
 }
 
 function initCloseModal(modal) {
+  if (initializedModals.has(modal)) return;
+
   const modalContainer = modal.querySelector('.containerModal');
   const btnsCloseModal = modal.querySelectorAll('.closeModal');
 
@@ -30,21 +33,25 @@ function initCloseModal(modal) {
     });
   }
 
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
-      closeModal(modal);
-    }
-  });
+  initializedModals.add(modal);
 }
 
 export function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
-    if (!modal.dataset.listenerAdded) {
+    activeModals.forEach(activeModal => {
+      if (activeModal !== modal) {
+        closeModal(activeModal);
+      }
+    });
+
+    if (!initializedModals.has(modal)) {
       initCloseModal(modal);
-      modal.dataset.listenerAdded = 'true';
     }
-    showModal(modal);
+    
+    if (!modal.classList.contains('isOpened')) {
+      showModal(modal);
+    }
   }
 }
 
@@ -60,4 +67,10 @@ function initOpenModal() {
   });
 }
 
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    const lastModal = Array.from(activeModals).pop();
+    if (lastModal) closeModal(lastModal);
+  }
+});
 document.addEventListener('DOMContentLoaded', initOpenModal);
