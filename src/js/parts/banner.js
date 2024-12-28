@@ -1,34 +1,45 @@
-const bannerCarousell = document.querySelector('.banner__carousell');
+const bannerCarousels = document.querySelectorAll('.banner__carousel');
 
 function initCalcSpeedCarse() {
-  if (bannerCarousell) {
-    const carousellPartF = bannerCarousell.querySelector('.carsePartF');
-    const carousellPartS = bannerCarousell.querySelector('.carsePartS');
+  bannerCarousels?.forEach(carousel => {
+    const carousellPartF = carousel.querySelector('.carsePartF');
+    const carousellPartS = carousel.querySelector('.carsePartS');
 
     const listWidthPartF = carousellPartF.scrollWidth; // Повна ширина списку carsePartF
-    const carousellWidth = bannerCarousell.clientWidth; // Ширина видимої області
-
+    const carousellWidth = carousel.clientWidth; // Ширина видимої області
     const moveValue = listWidthPartF - carousellWidth;
-    bannerCarousell.style.setProperty('--moveP', `${Math.abs(moveValue)}px`);
-    bannerCarousell.style.setProperty('--moveM', `-${Math.abs(moveValue)}px`);
 
-    const childrenCountF = carousellPartF.children.length;
+    const computedStyle = window.getComputedStyle(carousellPartF);
+    const gap = parseFloat(computedStyle.gap || 0);
+    const totalGap = (gap / 16) * 2;
 
-    const speedFactor =
-      parseFloat(bannerCarousell.getAttribute('data-speed')) || 1;
+    carousel.style.setProperty('--moveP', `${Math.abs(moveValue)}px`);
+    carousel.style.setProperty('--moveM', `-${Math.abs(moveValue)}px`);
+    carousel.style.setProperty('--gap', `${totalGap}rem`);
 
-    const calcSpeed = speedFactor * childrenCountF; // Розрахунок швидкості в залежності від кількості елементів списку carsePartF
+    const speedFactor = parseFloat(carousel.getAttribute('data-speed')) || 5;
+    const reverse = carousel.hasAttribute('data-reverse');
 
-    carousellPartF.style.animationDelay = `-${calcSpeed}s`;
-    carousellPartS.style.animationDelay = `-${calcSpeed / 2}s`;
-    carousellPartF.style.webkitAnimationDelay = `-${calcSpeed}s`;
-    carousellPartS.style.webkitAnimationDelay = `-${calcSpeed / 2}s`;
+    const calcSpeed = (listWidthPartF / 1000) * speedFactor;
+    const speed = window.innerWidth > 960 ? calcSpeed : calcSpeed / 2;
 
-    carousellPartF.style.animationDuration = `${calcSpeed}s`;
-    carousellPartS.style.animationDuration = `${calcSpeed}s`;
-    carousellPartF.style.webkitAnimationDuration = `${calcSpeed}s`;
-    carousellPartS.style.webkitAnimationDuration = `${calcSpeed}s`;
-  }
+    const direction = reverse ? 'reverse' : 'normal';
+
+    carousellPartF.style.animationDelay = `-${speed}s`;
+    carousellPartS.style.animationDelay = `-${speed / 2}s`;
+    carousellPartF.style.webkitAnimationDelay = `-${speed}s`;
+    carousellPartS.style.webkitAnimationDelay = `-${speed / 2}s`;
+
+    carousellPartF.style.animationDuration = `${speed}s`;
+    carousellPartS.style.animationDuration = `${speed}s`;
+    carousellPartF.style.webkitAnimationDuration = `${speed}s`;
+    carousellPartS.style.webkitAnimationDuration = `${speed}s`;
+
+    carousellPartF.style.animationDirection = direction;
+    carousellPartS.style.animationDirection = direction;
+    carousellPartF.style.webkitAnimationDirection = direction;
+    carousellPartS.style.webkitAnimationDirection = direction;
+  });
 }
 
 window.addEventListener('resize', initCalcSpeedCarse);

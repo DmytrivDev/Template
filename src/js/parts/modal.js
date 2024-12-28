@@ -48,7 +48,7 @@ export function openModal(modalId) {
     if (!initializedModals.has(modal)) {
       initCloseModal(modal);
     }
-    
+
     if (!modal.classList.contains('isOpened')) {
       showModal(modal);
     }
@@ -73,4 +73,5 @@ document.addEventListener('keydown', event => {
     if (lastModal) closeModal(lastModal);
   }
 });
+
 document.addEventListener('DOMContentLoaded', initOpenModal);

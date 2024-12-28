@@ -46,6 +46,11 @@
       transition-property: height, visibility, opacity !important;
     }
   }
+
+  // ============== Splide ==============
+  .splide__list {
+    display: flex;
+  }
 }
 
 @media screen and (max-width: 960px) {
