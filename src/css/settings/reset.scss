@@ -47,9 +47,104 @@
     }
   }
 
+  // ============== Nice select ==============
+  .nice-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 0.625rem;
+    background-color: var(--cw);
+    border-radius: 0;
+    border: 0.0625rem solid var(--cm);
+    height: auto;
+    font-size: inherit;
+    line-height: inherit;
+    float: none;
+    padding: 0.625rem 1.25rem;
+    width: 100%;
+
+    &::after {
+      border: none;
+      margin: 0;
+      position: static;
+      transform: rotateX(0);
+      transform-origin: center;
+
+      flex-shrink: 0;
+      width: 0.5rem;
+      height: 0.5rem;
+      background-size: 0.5rem 0.5rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: var(--selectVec);
+    }
+
+    &:hover,
+    &:active,
+    &:focus,
+    &.open {
+      border-color: var(--cm);
+    }
+
+    &.open {
+      &::after {
+        transform: rotateX(180deg);
+      }
+      .nice-select-dropdown {
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .nice-select-dropdown {
+      transform: scale(0.9) translateY(-0.4375rem);
+      overflow: hidden;
+      width: 100%;
+      box-shadow: none;
+      border-radius: 0;
+      margin-top: 0.3125rem;
+      background-color: var(--cw);
+      border: 0.0625rem solid var(--cm);
+    }
+    .list {
+      border-radius: 0;
+    }
+    .option {
+      line-height: inherit;
+      padding: 0.625rem 1.25rem;
+      text-wrap: wrap;
+      font-weight: inherit;
+      &:hover {
+      }
+      &.focus {
+      }
+      &.selected.focus {
+      }
+    }
+  }
+
   // ============== Splide ==============
   .splide__list {
     display: flex;
+  }
+  .splide__pagination {
+    position: static;
+    padding: 0;
+    bottom: 0;
+    gap: 0 0.5rem;
+    li {
+      display: flex;
+    }
+  }
+  .splide__pagination__page {
+    border-radius: 50%;
+    width: 0.625rem;
+    height: 0.625rem;
+    margin: 0;
+    background-color: var(--cw);
+    &.is-active {
+      transform: none;
+      opacity: 0.3;
+    }
   }
 }
 
