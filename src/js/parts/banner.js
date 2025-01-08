@@ -17,11 +17,12 @@ function initCalcSpeedCarse() {
     carousel.style.setProperty('--moveM', `-${Math.abs(moveValue)}px`);
     carousel.style.setProperty('--gap', `${totalGap}rem`);
 
-    const speedFactor = parseFloat(carousel.getAttribute('data-speed')) || 5;
+    const dataSpeed = parseFloat(carousel.getAttribute('data-speed')) || 10;
+    const dataFactor = parseFloat(carousel.getAttribute('data-factor')) || 1.5;
     const reverse = carousel.hasAttribute('data-reverse');
 
-    const calcSpeed = (listWidthPartF / 1000) * speedFactor;
-    const speed = window.innerWidth > 960 ? calcSpeed : calcSpeed / 2;
+    const calcSpeed = (listWidthPartF / 1000) * dataSpeed;
+    const speed = window.innerWidth > 960 ? calcSpeed : calcSpeed * dataFactor;
 
     const direction = reverse ? 'reverse' : 'normal';
 
