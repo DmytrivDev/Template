@@ -57,29 +57,19 @@ body {
   }
 }
 
-/* --------- Adaptive tablet (772px) --------- */
+/* --------- Adaptive mobile (375px) --------- */
 
-// @media screen and (max-width: 772px) {
+// @media screen and (max-width: 375px) {
 //   html,
 //   body {
-//     font-size: 2.07vw;
+//     font-size: 4.27vw;
 //   }
 // }
 
-/* --------- Adaptive mobile (500px) --------- */
-
-@media screen and (max-width: 500px) {
+/* --------- Adaptive mobile (320px) --------- */
+@media screen and (max-width: 320px) {
   html,
   body {
-    font-size: 16px;
-  }
-}
-
-/* --------- Adaptive mobile (375px) --------- */
-
-@media screen and (max-width: 375px) {
-  html,
-  body {
-    font-size: 4.27vw;
+    font-size: 4.96vw;
   }
 }

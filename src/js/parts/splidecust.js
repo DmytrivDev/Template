@@ -86,17 +86,17 @@ export const initSlider = (container, options = {}) => {
 
 //   <div class="arrows">
 //     <div class="arrows__body">
-//       <button type="button" class="arrows__prev">
+//       <button type="button" class="arrows__prev" aria-label="Arrows prev">
 //         <span>Назад</span>
 //       </button>
 //       <span class="arrows__number">1/1</span>
-//       <button type="button" class="arrows__next">
+//       <button type="button" class="arrows__next" aria-label="Arrows next">
 //         <span>Далі</span>
 //       </button>
 //     </div>
 //   </div>
 
 //   <div class="progressbar">
-//     <div class="progressbar__thumb"></div>
+//     <div class="progressbar__thumb" aria-label="Progressbar line"></div>
 //   </div>
 // </section>
