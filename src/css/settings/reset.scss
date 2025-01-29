@@ -47,78 +47,75 @@
     }
   }
 
-  // ============== Nice select ==============
-  .nice-select {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0 0.625rem;
-    background-color: var(--cw);
-    border-radius: 0;
-    border: 0.0625rem solid var(--cm);
-    height: auto;
+  // ============== Tom select ==============
+  .ts-wrapper {
+    min-height: auto;
+  }
+  .ts-dropdown,
+  .ts-control,
+  .ts-control input {
     font-size: inherit;
     line-height: inherit;
-    float: none;
-    padding: 0.625rem 1.25rem;
-    width: 100%;
-
-    &::after {
-      border: none;
-      margin: 0;
-      position: static;
-      transform: rotateX(0);
-      transform-origin: center;
-
-      flex-shrink: 0;
-      width: 0.5rem;
-      height: 0.5rem;
-      background-size: 0.5rem 0.5rem;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-image: var(--selectVec);
-    }
-
-    &:hover,
-    &:active,
-    &:focus,
-    &.open {
-      border-color: var(--cm);
-    }
-
-    &.open {
-      &::after {
-        transform: rotateX(180deg);
-      }
-      .nice-select-dropdown {
-        transform: scale(1) translateY(0);
-      }
-    }
-
-    .nice-select-dropdown {
-      transform: scale(0.9) translateY(-0.4375rem);
-      overflow: hidden;
-      width: 100%;
+    color: inherit;
+  }
+  .ts-wrapper.single {
+    .ts-control {
+      --ts-pr-caret: 1.5rem;
+      padding: 0.3125rem 0.5rem;
       box-shadow: none;
       border-radius: 0;
-      margin-top: 0.3125rem;
+      box-shadow: none;
       background-color: var(--cw);
-      border: 0.0625rem solid var(--cm);
+      border: 0.0625rem solid var(--cb);
+      background-image: none;
+      &:focus-visible {
+        outline: none;
+      }
+      &::after {
+        margin: 0;
+        border: none;
+        right: 0.5rem !important;
+        transform: rotateX(0) translateY(-50%);
+        width: 0.5rem;
+        height: 0.5rem;
+        background-size: 0.5rem 0.5rem;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: var(--selectVec);
+      }
+      .item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
-    .list {
-      border-radius: 0;
+    &.dropdown-active {
+      .ts-control {
+        &::after {
+          margin: 0;
+          border: none;
+          transform: rotateX(180deg) translateY(50%);
+        }
+      }
+    }
+    &.input-active {
+      .ts-control {
+        cursor: pointer;
+        background-color: var(--cw);
+      }
+    }
+  }
+  .ts-dropdown.single {
+    border: 0.0625rem solid var(--cb);
+    background-color: var(--cw);
+    box-shadow: none;
+    border-radius: 0;
+    .active {
+      background-color: cadetblue;
+      color: inherit;
     }
     .option {
-      line-height: inherit;
-      padding: 0.625rem 1.25rem;
-      text-wrap: wrap;
-      font-weight: inherit;
-      &:hover {
-      }
-      &.focus {
-      }
-      &.selected.focus {
-      }
+      padding: 0.3125rem 0.5rem;
     }
   }
 

@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import { globSync } from 'glob';
+import sass from 'sass';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 
@@ -34,6 +35,7 @@ export default defineConfig(({ command }) => {
     css: {
       preprocessorOptions: {
         sass: {
+          implementation: sass,
           additionalData: ` $class: &; `,
         },
       },

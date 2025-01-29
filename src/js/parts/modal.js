@@ -1,18 +1,18 @@
-import scrollLock from 'scroll-lock';
+import { lockScroll, unlockScroll } from './lockscroll.js';
 
 const activeModals = new Set();
 const initializedModals = new WeakSet();
 
 function showModal(modal) {
   modal.classList.add('isOpened', 'isAnimation');
-  scrollLock.disablePageScroll(modal, { reserveScrollBarGap: true });
+  lockScroll(modal);
   activeModals.add(modal);
 }
 
 export function closeModal(modal) {
   modal.classList.remove('isOpened', 'isAnimation');
-  scrollLock.enablePageScroll(modal);
   activeModals.delete(modal);
+  unlockScroll();
 }
 
 function initCloseModal(modal) {

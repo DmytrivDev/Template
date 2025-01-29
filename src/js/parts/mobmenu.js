@@ -1,37 +1,32 @@
-import scrollLock from 'scroll-lock';
+import { lockScroll, unlockScroll } from './lockscroll.js';
 
 const burger = document.querySelector('.burger');
 const mobMenu = document.querySelector('.mobmenu');
 const mobMenuBody = document.querySelector('.mobmenu__body');
 const mobNavLinks = document.querySelectorAll('.mobmenu .navmenu__list a');
 
-let isScrollLocked = false;
-
-function toggleScrollLock() {
-  if (mobMenuBody) {
-    if (isScrollLocked) {
-      scrollLock.enablePageScroll(mobMenuBody);
-    } else {
-      scrollLock.disablePageScroll(mobMenuBody, { reserveScrollBarGap: true });
-    }
-    isScrollLocked = !isScrollLocked;
-  }
-}
+let isMenuOpened = false;
 
 function toggleMenu() {
   if (burger && mobMenu) {
+    isMenuOpened = !isMenuOpened;
     burger.classList.toggle('isOpened');
     mobMenu.classList.toggle('isOpened');
-    toggleScrollLock();
+
+    if (isMenuOpened) {
+      lockScroll(mobMenuBody);
+    } else {
+      unlockScroll();
+    }
   }
 }
 
 function closeMenu() {
-  if (burger && mobMenu) {
+  if (burger && mobMenu && isMenuOpened) {
+    isMenuOpened = false;
     burger.classList.remove('isOpened');
     mobMenu.classList.remove('isOpened');
-    if (mobMenuBody) scrollLock.enablePageScroll(mobMenuBody);
-    isScrollLocked = false;
+    unlockScroll();
   }
 }
 
