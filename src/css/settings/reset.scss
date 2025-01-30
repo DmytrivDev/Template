@@ -110,12 +110,39 @@
     background-color: var(--cw);
     box-shadow: none;
     border-radius: 0;
+    margin-top: 0.1875rem;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    &.isOpen {
+      animation-name: dropdownOpen;
+    }
+
+    .ts-dropdown-content {
+      max-height: 8.75rem;
+      &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        display: none;
+      }
+    }
+
     .active {
       background-color: cadetblue;
       color: inherit;
     }
     .option {
       padding: 0.3125rem 0.5rem;
+      transition: all 0.1s ease;
+    }
+  }
+
+  @keyframes dropdownOpen {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
