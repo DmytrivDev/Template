@@ -36,3 +36,10 @@ tomSelect?.forEach(select => {
     },
   });
 });
+
+// <select class="tom-select" data-txt="All:">
+//   <option value="">All</option>
+//   <option value="1">Nikola</option>
+//   <option value="2">Nikola Tesla</option>
+//   <option value="3">Thomas Edison</option>
+// </select>
