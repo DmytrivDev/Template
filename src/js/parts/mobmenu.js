@@ -44,7 +44,20 @@ function initMenu() {
 
   if (mobNavLinks) {
     mobNavLinks.forEach(link => {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', event => {
+        const target = event.target;
+        const itemChildren = target.closest('.menu-item');
+        const subMenu = target.closest('.sub-menu');
+
+        const hasItemChildren = itemChildren?.classList.contains(
+          'menu-item-has-children'
+        );
+        const subMenuLink = subMenu?.querySelectorAll('a');
+
+        if (!hasItemChildren || subMenuLink) {
+          closeMenu();
+        }
+      });
     });
   }
 }

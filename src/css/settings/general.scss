@@ -27,7 +27,7 @@ body {
 
 [class*="__container"] {
   max-width: 85rem;
-  padding: 0 2.5em;
+  padding: 0 1.875em;
   margin: 0 auto;
 }
 
@@ -49,27 +49,22 @@ body {
   }
 
   [class*="__container"] {
-    padding: 0 1.25em;
-  }
-
-  .main {
-    padding-bottom: 5rem;
+    padding: 0 0.9375em;
   }
 }
 
 /* --------- Adaptive mobile (375px) --------- */
 
-// @media screen and (max-width: 375px) {
-//   html,
-//   body {
-//     font-size: 4.27vw;
-//   }
-// }
+@media screen and (max-width: 375px) {
+  [class*="__container"] {
+    padding: 0 0.625em;
+  }
+}
 
 /* --------- Adaptive mobile (320px) --------- */
 @media screen and (max-width: 320px) {
   html,
   body {
-    font-size: 4.96vw;
+    font-size: 5vw;
   }
 }

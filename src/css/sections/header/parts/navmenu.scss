@@ -4,6 +4,12 @@
 }
 
 @media screen and (max-width: 960px) {
+  .header__main {
+    .navmenu {
+      display: none;
+    }
+  }
+
   .mobmenu {
     .navmenu {
     }
