@@ -25,7 +25,7 @@ import { initSlider } from './splidecust';
 // let elemSliderInstance;
 // const elem = document.querySelector('.elem');
 
-// const initOurproductSlider = () => {
+// const initElemSlider = () => {
 //   if (elem && !elemSliderInstance) {
 //     elemSliderInstance = initSlider(elem, {
 //       perPage: 2,
@@ -45,7 +45,7 @@ import { initSlider } from './splidecust';
 // };
 
 // const checkViewport = () => {
-//   initOurproductSlider();
+//   initElemSlider();
 //   if (window.innerWidth > 960) {
 //     destroySliders();
 //   }
