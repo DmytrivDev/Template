@@ -64,6 +64,7 @@
 
   &__close {
     position: absolute;
+    z-index: 100;
     top: 2rem;
     right: 2rem;
     width: 2rem;
