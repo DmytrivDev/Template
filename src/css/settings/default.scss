@@ -86,6 +86,7 @@ input[type="number"] {
 }
 
 textarea {
+  display: block;
   resize: none;
   &::-webkit-scrollbar {
     -webkit-appearance: none;

@@ -9,11 +9,13 @@ export const initSlider = (container, options = {}) => {
     type: 'slide',
     speed: 1000,
     perMove: 1,
-    arrows: true,
+    arrows: false,
     pagination: false,
     updateOnMove: true,
     ...options,
   }).mount();
+
+  const optionsType = splide.options.type;
 
   const arrows = container.querySelectorAll('.arrows');
 
@@ -21,19 +23,42 @@ export const initSlider = (container, options = {}) => {
     next: arrow.querySelector('.arrows__next'),
     prev: arrow.querySelector('.arrows__prev'),
     number: arrow.querySelector('.arrows__number'),
-    progressbar: container.querySelector('.progressbar__thumb'),
   }));
 
+  const slides = container.querySelectorAll('.splide__slide');
+
+  const progressIndicator = Array.from(slides).map(slide => ({
+    current: slide.querySelector('.current__slide'),
+    total: slide.querySelector('.total__slide'),
+  }));
+
+  const progressbar = container.querySelector('.progressbar__thumb');
+
   const updateSlideState = () => {
+    const quantitySlides = splide.Components.Elements.slides.length;
+
+    const currentIndex = Math.ceil(splide.index / splide.options.perPage) + 1;
     const totalSlides = Math.ceil(
       splide.Components.Elements.slides.length / splide.options.perPage
     );
-    const currentIndex = Math.ceil(splide.index / splide.options.perPage) + 1;
+
     const isAtStart = splide.index === 0;
     const isAtEnd = splide.index === splide.Components.Controller.getEnd();
 
-    navigationElems.forEach(({ next, prev, number, progressbar }) => {
-      if (next && prev) {
+    progressIndicator.forEach(({ current, total }, index) => {
+      if (current) {
+        current.textContent = String(index + 1).padStart(2, '0');
+      }
+
+      if (total) {
+        total.textContent = `${String(index + 1).padStart(2, '0')}/${String(
+          quantitySlides
+        ).padStart(2, '0')}`;
+      }
+    });
+
+    navigationElems.forEach(({ next, prev, number }) => {
+      if (next && prev && optionsType !== 'loop') {
         next.disabled = isAtEnd;
         prev.disabled = isAtStart;
         next.classList.toggle('isDisabled', isAtEnd);
@@ -41,18 +66,20 @@ export const initSlider = (container, options = {}) => {
       }
 
       if (number) {
-        number.textContent = `${currentIndex}/${totalSlides}`;
-      }
-
-      if (progressbar) {
-        const totalSlides = splide.Components.Elements.slides.length + 1;
-        const progress =
-          (((splide.index + 1) % totalSlides) /
-            (totalSlides - splide.options.perPage)) *
-          100;
-        progressbar.style.width = `${progress}%`;
+        number.textContent = `${String(currentIndex).padStart(2, '0')}/${String(
+          totalSlides
+        ).padStart(2, '0')}`;
       }
     });
+
+    if (progressbar) {
+      const quantityMod = quantitySlides + 1;
+      const progress =
+        (((splide.index + 1) % quantityMod) /
+          (quantityMod - splide.options.perPage)) *
+        100;
+      progressbar.style.width = `${progress}%`;
+    }
   };
 
   navigationElems.forEach(({ next, prev }) => {
@@ -60,11 +87,10 @@ export const initSlider = (container, options = {}) => {
     prev?.addEventListener('click', () => splide.go('<'));
   });
 
-  const eventToUse = splide.options.type === 'fade' ? 'moved' : 'move';
+  const eventToUse = optionsType === 'fade' ? 'moved' : 'move';
   splide.on(eventToUse, updateSlideState);
 
   window.addEventListener('resize', updateSlideState);
-
   updateSlideState();
 
   return splide;
@@ -75,10 +101,14 @@ export const initSlider = (container, options = {}) => {
 //     <div class="splide__track">
 //       <ul class="splide__list">
 //         <li class="splide__slide">
+//           <span class="current__slide">01</span>
+//           <span class="total__slide">01/02</span>
 //           <p>slide 1</p>
 //         </li>
 //         <li class="splide__slide">
-//           <p>slide 1</p>
+//           <span class="current__slide">02</span>
+//           <span class="total__slide">02/02</span>
+//           <p>slide 2</p>
 //         </li>
 //       </ul>
 //     </div>
@@ -89,7 +119,7 @@ export const initSlider = (container, options = {}) => {
 //       <button type="button" class="arrows__prev" aria-label="Arrows prev">
 //         <span>Назад</span>
 //       </button>
-//       <span class="arrows__number">1/1</span>
+//       <span class="arrows__number">01/02</span>
 //       <button type="button" class="arrows__next" aria-label="Arrows next">
 //         <span>Далі</span>
 //       </button>
