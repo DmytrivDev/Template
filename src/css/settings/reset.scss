@@ -172,6 +172,7 @@
     height: 0.625rem;
     margin: 0;
     background-color: var(--cw);
+    transition: all 0.15s ease-in;
     &.is-active {
       transform: none;
       opacity: 0.3;
