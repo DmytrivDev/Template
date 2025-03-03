@@ -1,0 +1,28 @@
+.header__main {
+  .actions {
+    &__lang {
+    }
+    &__soc {
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .header__main {
+    .actions {
+      display: none;
+    }
+  }
+
+  .mobmenu {
+    .actions {
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mobmenu {
+    .actions {
+    }
+  }
+}

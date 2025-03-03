@@ -17,6 +17,7 @@
 /* Header */
 @import url('./sections/header/header.scss');
 @import url('./sections/header/parts/navmenu.scss');
+@import url('./sections/header/parts/actions.scss');
 @import url('./sections/header/parts/mobmenu.scss');
 
 /* Home */
