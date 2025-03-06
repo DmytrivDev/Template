@@ -19,7 +19,7 @@
     "@fluejs/noscroll": "^1.0.0",
     "@splidejs/splide": "^4.1.4",
     "accordion-js": "^3.3.4",
-    "axios": "^1.7.7",
+    "axios": "^1.8.1",
     "imask": "^7.6.1",
     "tom-select": "^2.4.2",
     "validator": "^13.12.0",

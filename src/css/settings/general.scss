@@ -4,7 +4,7 @@ body {
   font-family: var(--ff);
   background-color: var(--cw);
   color: var(--cm);
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -27,7 +27,7 @@ body {
 
 [class*="__container"] {
   max-width: 85rem;
-  padding: 0 1.875em;
+  padding: 0 1.875rem;
   margin: 0 auto;
 }
 
@@ -49,15 +49,20 @@ body {
   }
 
   [class*="__container"] {
-    padding: 0 0.9375em;
+    padding: 0 0.9375rem;
   }
 }
 
 /* --------- Adaptive mobile (375px) --------- */
 
 @media screen and (max-width: 375px) {
+  html,
+  body {
+    font-size: 4.26vw;
+  }
+
   [class*="__container"] {
-    padding: 0 0.625em;
+    padding: 0 0.625rem;
   }
 }
 
