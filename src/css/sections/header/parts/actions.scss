@@ -1,14 +1,14 @@
-.header__main {
+.header__body {
   .actions {
-    &__lang {
-    }
-    &__soc {
-    }
+  }
+  .actions__lang {
+  }
+  .actions__soc {
   }
 }
 
 @media screen and (max-width: 960px) {
-  .header__main {
+  .header__body {
     .actions {
       display: none;
     }
@@ -17,12 +17,9 @@
   .mobmenu {
     .actions {
     }
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .mobmenu {
-    .actions {
+    .actions__lang {
+    }
+    .actions__soc {
     }
   }
 }

@@ -3,14 +3,20 @@
   // top: 0;
   position: relative;
   z-index: 1100;
-  &__main {
-    position: relative;
-    z-index: 110;
-    background-color: var(--cw);
-  }
-  &__body {
-    .custom-logo-link {
-    }
+}
+.header__main {
+  position: relative;
+  z-index: 110;
+  background-color: var(--cw);
+}
+.header__body {
+  display: flex;
+  align-items: center;
+  // min-height: 6.25rem;
+  // padding: 1.25rem 0;
+  .custom-logo-link {
+    display: block;
+    flex-shrink: 0;
   }
 }
 
@@ -19,12 +25,10 @@
 }
 
 @media screen and (max-width: 960px) {
-  .header {
-    &__main {
-    }
-    &__body {
-      .custom-logo-link {
-      }
+  .header__main {
+  }
+  .header__body {
+    .custom-logo-link {
     }
   }
 
@@ -72,10 +76,5 @@
         }
       }
     }
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .header {
   }
 }
