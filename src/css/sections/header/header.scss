@@ -17,6 +17,10 @@
   .custom-logo-link {
     display: block;
     flex-shrink: 0;
+    width: 2.5rem !important;
+    img {
+      width: 100%;
+    }
   }
 }
 
