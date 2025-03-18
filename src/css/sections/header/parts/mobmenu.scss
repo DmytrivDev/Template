@@ -25,18 +25,18 @@
       transform: translateY(0);
       top: 100%;
     }
+  }
 
-    &__body {
-      flex: 1 1 auto;
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
-    }
-    &__container {
-      width: 100%;
-      flex: 1 1 auto;
-      display: flex;
-      flex-direction: column;
-    }
+  .mobmenu__body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .mobmenu__container {
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
   }
 }
