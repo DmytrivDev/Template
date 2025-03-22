@@ -1,15 +1,15 @@
-const bannerCarousels = document.querySelectorAll('.banner__carousel');
+const banner = document.querySelectorAll('.banner');
 
 function initCalcSpeedCarse() {
-  bannerCarousels?.forEach(carousel => {
-    const carousellPartF = carousel.querySelector('.carsePartF');
-    const carousellPartS = carousel.querySelector('.carsePartS');
+  banner?.forEach(carousel => {
+    const carousellFirst = carousel.querySelector('.carseFirst');
+    const carousellSecond = carousel.querySelector('.carseSecond');
 
-    const listWidthPartF = carousellPartF.scrollWidth; // Повна ширина списку carsePartF
+    const listWidthFirst = carousellFirst.scrollWidth; // Повна ширина першого
     const carousellWidth = carousel.clientWidth; // Ширина видимої області
-    const moveValue = listWidthPartF - carousellWidth;
+    const moveValue = listWidthFirst - carousellWidth;
 
-    const computedStyle = window.getComputedStyle(carousellPartF);
+    const computedStyle = window.getComputedStyle(carousellFirst);
     const gap = parseFloat(computedStyle.gap || 0);
     const totalGap = (gap / 16) * 2;
 
@@ -17,29 +17,29 @@ function initCalcSpeedCarse() {
     carousel.style.setProperty('--moveM', `-${Math.abs(moveValue)}px`);
     carousel.style.setProperty('--gap', `${totalGap}rem`);
 
-    const dataSpeed = parseFloat(carousel.getAttribute('data-speed')) || 10;
-    const dataFactor = parseFloat(carousel.getAttribute('data-factor')) || 1.5;
+    const speedDesc = parseFloat(carousel.getAttribute('data-spdesc')) || 10;
+    const speedMob = parseFloat(carousel.getAttribute('data-spmob')) || 20;
     const reverse = carousel.hasAttribute('data-reverse');
 
-    const calcSpeed = (listWidthPartF / 1000) * dataSpeed;
-    const speed = window.innerWidth > 960 ? calcSpeed : calcSpeed * dataFactor;
+    const formatSpeed = window.innerWidth > 960 ? speedDesc : speedMob;
+    const speed = (listWidthFirst / 1000) * formatSpeed;
 
     const direction = reverse ? 'reverse' : 'normal';
 
-    carousellPartF.style.animationDelay = `-${speed}s`;
-    carousellPartS.style.animationDelay = `-${speed / 2}s`;
-    carousellPartF.style.webkitAnimationDelay = `-${speed}s`;
-    carousellPartS.style.webkitAnimationDelay = `-${speed / 2}s`;
+    carousellFirst.style.animationDelay = `-${speed}s`;
+    carousellSecond.style.animationDelay = `-${speed / 2}s`;
+    carousellFirst.style.webkitAnimationDelay = `-${speed}s`;
+    carousellSecond.style.webkitAnimationDelay = `-${speed / 2}s`;
 
-    carousellPartF.style.animationDuration = `${speed}s`;
-    carousellPartS.style.animationDuration = `${speed}s`;
-    carousellPartF.style.webkitAnimationDuration = `${speed}s`;
-    carousellPartS.style.webkitAnimationDuration = `${speed}s`;
+    carousellFirst.style.animationDuration = `${speed}s`;
+    carousellSecond.style.animationDuration = `${speed}s`;
+    carousellFirst.style.webkitAnimationDuration = `${speed}s`;
+    carousellSecond.style.webkitAnimationDuration = `${speed}s`;
 
-    carousellPartF.style.animationDirection = direction;
-    carousellPartS.style.animationDirection = direction;
-    carousellPartF.style.webkitAnimationDirection = direction;
-    carousellPartS.style.webkitAnimationDirection = direction;
+    carousellFirst.style.animationDirection = direction;
+    carousellSecond.style.animationDirection = direction;
+    carousellFirst.style.webkitAnimationDirection = direction;
+    carousellSecond.style.webkitAnimationDirection = direction;
   });
 }
 
