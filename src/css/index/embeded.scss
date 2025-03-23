@@ -1,10 +1,6 @@
 .embeded {
-  font-size: 1em;
-  line-height: 1.5em;
-  color: var(--cm);
-
   & > * {
-    margin-top: 0.75em;
+    margin-top: 1rem;
 
     &:first-child {
       margin-top: 0;
@@ -23,12 +19,9 @@
     text-decoration-thickness: 1px !important;
   }
 
-  b {
-    display: block;
-    font-size: 1.125em;
-    font-weight: 500;
-    line-height: 1.556em;
-    margin-top: 1em;
+  b,
+  strong {
+    font-weight: 600;
   }
 
   h1,
@@ -37,32 +30,28 @@
   h4,
   h5,
   h6 {
-    font-weight: 600;
+    font-weight: 700;
   }
 
-  h2,
+  h1 {
+  }
+  h2 {
+  }
   h3 {
-    font-size: 1.25em;
-    line-height: 1.7em;
-    margin-top: 1em;
-    margin-bottom: 0.75em;
   }
-
-  h4,
-  h5,
+  h4 {
+  }
+  h5 {
+  }
   h6 {
-    font-size: 1em;
-    line-height: 1.6em;
-    margin-top: 1em;
-    margin-bottom: 0.75em;
   }
 
   ul {
-    margin-left: 1em;
+    margin-left: 1rem;
 
     li {
-      margin-bottom: 1em;
-      margin-left: 0.5em;
+      margin-bottom: 1rem;
+      margin-left: 0.5rem;
       list-style: disc;
 
       &:last-child {
@@ -72,11 +61,11 @@
   }
 
   ol {
-    padding-left: 1em;
+    padding-left: 1rem;
     margin-left: 0;
 
     li {
-      margin-bottom: 0.5em;
+      margin-bottom: 0.5rem;
       list-style: decimal;
       margin-left: 0;
 
@@ -89,7 +78,7 @@
   .wp-block-image,
   .wp-block-video,
   .wp-block-embed {
-    margin: 2.5em 0;
+    margin: 2.5rem 0;
     width: 100%;
 
     &.is-resized {
@@ -140,23 +129,5 @@
 
 @media screen and (max-width: 960px) {
   .embeded {
-    font-size: 0.875em;
-    line-height: 1.4em;
-
-    b {
-      font-size: 1em;
-      line-height: 1.45em;
-    }
-
-    h2,
-    h3 {
-      font-size: 1em;
-    }
-
-    h4,
-    h5,
-    h6 {
-      font-size: 0.875em;
-    }
   }
 }
