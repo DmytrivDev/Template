@@ -1,4 +1,4 @@
-const banner = document.querySelectorAll('.banner');
+const banner = document.querySelectorAll('.banner__carousell');
 
 function initCalcSpeedCarse() {
   banner?.forEach(carousel => {
