@@ -6,7 +6,7 @@ import { initSlider } from './splidecust';
 //     perPage: 2,
 //     breakpoints: {
 //       960: {},
-//       500: {},
+//       768: {},
 //     },
 //   });
 // }
@@ -17,7 +17,7 @@ import { initSlider } from './splidecust';
 //     perPage: 2,
 //     breakpoints: {
 //       960: {},
-//       500: {},
+//       768: {},
 //     },
 //   });
 // });
@@ -31,7 +31,7 @@ import { initSlider } from './splidecust';
 //       perPage: 2,
 //       breakpoints: {
 //         960: {},
-//         500: {},
+//         768: {},
 //       },
 //     });
 //   }
