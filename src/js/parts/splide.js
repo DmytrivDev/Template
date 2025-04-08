@@ -25,7 +25,7 @@ import { initSlider } from './splidecust';
 // let elemSliderInstance;
 // const elem = document.querySelector('.elem');
 
-// const initElemSlider = () => {
+// const elemInitSlider = () => {
 //   if (elem && !elemSliderInstance) {
 //     elemSliderInstance = initSlider(elem, {
 //       perPage: 2,
