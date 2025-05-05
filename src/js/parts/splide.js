@@ -45,7 +45,7 @@ import { initSlider } from './splidecust';
 // };
 
 // const checkViewport = () => {
-//   initElemSlider();
+//   elemInitSlider();
 //   if (window.innerWidth > 960) {
 //     destroySliders();
 //   }
