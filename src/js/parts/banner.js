@@ -2,8 +2,8 @@ const banner = document.querySelectorAll('.banner__carousell');
 
 function initCalcSpeedCarse() {
   banner?.forEach(carousel => {
-    const carousellFirst = carousel.querySelector('.carseFirst');
-    const carousellSecond = carousel.querySelector('.carseSecond');
+    const carousellFirst = carousel.querySelector('.carouse-first');
+    const carousellSecond = carousel.querySelector('.carouse-second');
 
     const listWidthFirst = carousellFirst.scrollWidth; // Повна ширина першого
     const carousellWidth = carousel.clientWidth; // Ширина видимої області
@@ -13,8 +13,11 @@ function initCalcSpeedCarse() {
     const gap = parseFloat(computedStyle.gap || 0);
     const totalGap = (gap / 16) * 2;
 
-    carousel.style.setProperty('--moveP', `${Math.abs(moveValue)}px`);
-    carousel.style.setProperty('--moveM', `-${Math.abs(moveValue)}px`);
+    carousel.style.setProperty('--offset-positive', `${Math.abs(moveValue)}px`);
+    carousel.style.setProperty(
+      '--offset-negative',
+      `-${Math.abs(moveValue)}px`
+    );
     carousel.style.setProperty('--gap', `${totalGap}rem`);
 
     const speedDesc = parseFloat(carousel.getAttribute('data-spdesc')) || 10;
@@ -26,20 +29,14 @@ function initCalcSpeedCarse() {
 
     const direction = reverse ? 'reverse' : 'normal';
 
-    carousellFirst.style.animationDelay = `-${speed}s`;
-    carousellSecond.style.animationDelay = `-${speed / 2}s`;
-    carousellFirst.style.webkitAnimationDelay = `-${speed}s`;
-    carousellSecond.style.webkitAnimationDelay = `-${speed / 2}s`;
-
-    carousellFirst.style.animationDuration = `${speed}s`;
-    carousellSecond.style.animationDuration = `${speed}s`;
-    carousellFirst.style.webkitAnimationDuration = `${speed}s`;
-    carousellSecond.style.webkitAnimationDuration = `${speed}s`;
-
-    carousellFirst.style.animationDirection = direction;
-    carousellSecond.style.animationDirection = direction;
-    carousellFirst.style.webkitAnimationDirection = direction;
-    carousellSecond.style.webkitAnimationDirection = direction;
+    [carousellFirst, carousellSecond].forEach((el, i) => {
+      el.style.animationDelay = `-${speed * (i === 0 ? 1 : 0.5)}s`;
+      el.style.animationDuration = `${speed}s`;
+      el.style.animationDirection = direction;
+      el.style.webkitAnimationDelay = `-${speed * (i === 0 ? 1 : 0.5)}s`;
+      el.style.webkitAnimationDuration = `${speed}s`;
+      el.style.webkitAnimationDirection = direction;
+    });
   });
 }
 

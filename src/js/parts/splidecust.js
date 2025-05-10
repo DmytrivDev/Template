@@ -61,8 +61,8 @@ export const initSlider = (container, options = {}) => {
       if (next && prev && optionsType !== 'loop') {
         next.disabled = isAtEnd;
         prev.disabled = isAtStart;
-        next.classList.toggle('isDisabled', isAtEnd);
-        prev.classList.toggle('isDisabled', isAtStart);
+        next.classList.toggle('is-disabled', isAtEnd);
+        prev.classList.toggle('is-disabled', isAtStart);
       }
 
       if (number) {

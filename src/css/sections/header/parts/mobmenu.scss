@@ -16,12 +16,10 @@
     background-color: var(--cw);
     transform: translateY(-100%);
 
-    transition: all 0.35s ease-in;
-    -webkit-transition: all 0.35s ease-in;
-    -o-transition: all 0.35s ease-in;
+    transition: all 0.3s ease-in-out;
     -webkit-overflow-scrolling: touch;
 
-    &.isOpened {
+    &.is-open {
       transform: translateY(0);
       top: 100%;
     }

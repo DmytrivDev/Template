@@ -3,26 +3,36 @@ import { lockScroll, unlockScroll } from './lockscroll.js';
 const activeModals = new Set();
 const initializedModals = new WeakSet();
 
+let lastFocusedElement = null;
+
 function showModal(modal) {
-  modal.classList.add('isOpened');
+  modal.classList.add('is-open');
   lockScroll(modal);
   activeModals.add(modal);
+
+  setTimeout(() => {
+    modal.focus();
+  }, 150);
 }
 
 export function closeModal(modal) {
-  modal.classList.remove('isOpened');
+  modal.classList.remove('is-open');
 
   setTimeout(() => {
     activeModals.delete(modal);
     unlockScroll();
+
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
   }, 150);
 }
 
 function initCloseModal(modal) {
   if (initializedModals.has(modal)) return;
 
-  const modalContainer = modal.querySelector('.containerModal');
-  const btnsCloseModal = modal.querySelectorAll('.closeModal');
+  const modalContainer = modal.querySelector('.modal__container');
+  const btnsCloseModal = modal.querySelectorAll('.modal__close');
 
   btnsCloseModal.forEach(btn => {
     btn.addEventListener('click', () => closeModal(modal));
@@ -42,6 +52,8 @@ function initCloseModal(modal) {
 export function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
+    lastFocusedElement = document.activeElement;
+
     activeModals.forEach(activeModal => {
       if (activeModal !== modal) {
         closeModal(activeModal);
@@ -52,14 +64,14 @@ export function openModal(modalId) {
       initCloseModal(modal);
     }
 
-    if (!modal.classList.contains('isOpened')) {
+    if (!modal.classList.contains('is-open')) {
       showModal(modal);
     }
   }
 }
 
 function initOpenModal() {
-  const btnsOpenModal = document.querySelectorAll('.openModal');
+  const btnsOpenModal = document.querySelectorAll('.open-modal');
   btnsOpenModal.forEach(btn => {
     btn.addEventListener('click', () => {
       const modalId = btn.dataset.id;

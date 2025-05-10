@@ -1,55 +1,50 @@
-const copyBtns = document.querySelectorAll('.clipboard');
+const copyBtns = document.querySelectorAll('.copy-btn');
 
 copyBtns?.forEach(btn => {
   btn.addEventListener('click', event => {
-    const copyBox = event.target.closest('.copyBox');
-    if (copyBox.classList.contains('isCopy')) return;
+    const copyBox = event.target.closest('.copy-box');
+    if (!copyBox) return;
 
-    const textToCopy = btn.dataset.copy;
+    const copyElem = copyBox.querySelector('.copy-elem');
 
-    if (copyBox && textToCopy) {
-      const copyElem = copyBox.querySelector('.copyElem');
-      const textDef = copyElem.textContent.trim();
+    if (copyElem) {
+      const textToCopied = btn.dataset.copied;
+      const clipboardElem = copyElem.dataset.clipboard;
 
-      if (copyElem) {
-        const textElem = copyElem.textContent.trim();
+      navigator.clipboard
+        .writeText(clipboardElem)
+        .then(() => {
+          if (!copyBox.timer) copyBox.timer = null;
 
-        navigator.clipboard
-          .writeText(textElem)
-          .then(() => {
-            if (!copyBox.timer) {
-              copyBox.timer = null;
-            }
+          copyBox.classList.add('is-copy');
 
-            copyBox.classList.add('isCopy');
-            copyElem.textContent = textToCopy;
+          if (textToCopied) copyElem.textContent = textToCopied;
 
-            if (copyBox.timer) {
-              clearTimeout(copyBox.timer);
-            }
+          if (copyBox.timer) clearTimeout(copyBox.timer);
 
-            copyBox.timer = setTimeout(() => {
-              copyElem.textContent = textDef;
-              copyBox.classList.remove('isCopy');
-              copyBox.timer = null;
-            }, 1000);
-          })
-          .catch(err => {
-            console.error('Помилка при копіюванні: ', err);
-          });
-      }
+          copyBox.timer = setTimeout(() => {
+            if (textToCopied) copyElem.textContent = clipboardElem;
+            copyBox.classList.remove('is-copy');
+            copyBox.timer = null;
+          }, 1000);
+        })
+        .catch(err => {
+          console.error('Помилка при копіюванні: ', err);
+        });
     }
   });
 });
 
-// <div class="copyBox">
+// <div class="copy-box">
 //   <button
 //     type="button"
-//     class="clipboard"
+//     class="copy-btn"
 //     aria-label="Copy button"
-//     data-copy="Copied to the clipboard"
-//   ></button>
-//   <a href="#" class="copyElem">
-//     Text
+//     data-copied="Copied to the clipboard"
+//   >
+//     X
+//   </button>
+//   <a href="#" class="copy-elem" data-clipboard="Clipboard">
+//     Clipboard
 //   </a>
 // </div>

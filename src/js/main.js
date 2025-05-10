@@ -5,7 +5,7 @@ import './parts/modal.js';
 // import './parts/scrollto.js';
 // import './parts/accordion.js';
 // import './parts/tabs.js';
-// import './parts/addmore.js';
+// import './parts/showmore.js';
 // import './parts/videoplay.js';
 // import './parts/banner.js';
 // import './parts/splidecust.js';

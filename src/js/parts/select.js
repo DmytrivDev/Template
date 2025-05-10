@@ -29,10 +29,10 @@ tomSelect?.forEach(select => {
       },
     },
     onDropdownOpen: function () {
-      this.dropdown.classList.add('isOpen');
+      this.dropdown.classList.add('is-open');
     },
     onDropdownClose: function () {
-      this.dropdown.classList.remove('isOpen');
+      this.dropdown.classList.remove('is-open');
     },
   });
 });

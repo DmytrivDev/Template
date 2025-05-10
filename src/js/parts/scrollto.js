@@ -4,11 +4,13 @@ const anchorLinks = document.querySelectorAll('.anchor-links li > a, .anchor');
 
 anchorLinks?.forEach(link => {
   link.addEventListener('click', event => {
-    const headerHeight = document.querySelector('.header').offsetHeight || 0;
     const href = link.getAttribute('href');
 
     if (href.startsWith('#') && href !== '#') {
       event.preventDefault();
+
+      const header = document.querySelector('.header');
+      const headerHeight = header?.offsetHeight || 0;
 
       const targetElement = document.querySelector(href);
       if (targetElement) {

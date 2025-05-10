@@ -20,15 +20,15 @@ function handleMenuItemChildren() {
         event.preventDefault();
         const subMenu = menuItem.querySelector('& > .sub-menu');
         toggle(subMenu, { display: 'flex' });
-        menuItem.classList.toggle('isOpened');
+        menuItem.classList.toggle('is-open');
 
         const allOpenedItems = menuItem.parentElement.querySelectorAll(
-          '.menu-item-has-children.isOpened'
+          '.menu-item-has-children.is-open'
         );
         allOpenedItems.forEach(item => {
           if (item !== menuItem) {
             up(item.querySelector('.sub-menu'));
-            item.classList.remove('isOpened');
+            item.classList.remove('is-open');
           }
         });
       }
@@ -48,7 +48,7 @@ function handleMenuItemChildren() {
 
         menuElement
           .querySelectorAll('& > .menu-item-has-children')
-          .forEach(item => item.classList.remove('isOpened'));
+          .forEach(item => item.classList.remove('is-open'));
         menuElement.querySelectorAll('& > .sub-menu').forEach(subMenu => {
           subMenu.style.display = '';
         });
