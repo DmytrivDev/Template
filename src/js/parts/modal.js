@@ -32,7 +32,7 @@ function initCloseModal(modal) {
   if (initializedModals.has(modal)) return;
 
   const modalContainer = modal.querySelector('.modal__container');
-  const btnsCloseModal = modal.querySelectorAll('.modal__close');
+  const btnsCloseModal = modal.querySelectorAll('.close-modal');
 
   btnsCloseModal.forEach(btn => {
     btn.addEventListener('click', () => closeModal(modal));
