@@ -1,5 +1,6 @@
 .header__body {
   .actions {
+    flex-shrink: 0;
   }
   .actions__lang {
     & > li {
