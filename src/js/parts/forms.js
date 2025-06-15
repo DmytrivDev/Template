@@ -4,7 +4,7 @@ import IMask from 'imask';
 import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'validator/lib/isEmpty';
 
-const forms = document.querySelectorAll('.submitForm');
+const forms = document.querySelectorAll('.submit-form');
 
 forms?.forEach(form => {
   form.addEventListener('submit', submitForm);
@@ -82,35 +82,35 @@ function checkFields(field, type, val) {
 
   if (type === 'text') {
     if (isEmpty(val)) {
-      field.closest('label').classList.add('isRequire');
+      field.closest('label').classList.add('is-require');
       errors = true;
     }
   }
 
   if (type === 'email') {
     if (isEmpty(val) || !isEmail(val)) {
-      field.closest('label').classList.add('isRequire');
+      field.closest('label').classList.add('is-require');
       errors = true;
     }
   }
 
   if (type === 'tel') {
     if (isEmpty(val) || !isMaskFilledTel(field)) {
-      field.closest('label').classList.add('isRequire');
+      field.closest('label').classList.add('is-require');
       errors = true;
     }
   }
 
   if (type === 'checkbox') {
     if (!field.checked) {
-      field.closest('label').classList.add('isRequire');
+      field.closest('label').classList.add('is-require');
       errors = true;
     }
   }
 
   if (field.tagName === 'SELECT') {
     if (!field.value || field.value === '') {
-      field.closest('label').classList.add('isRequire');
+      field.closest('label').classList.add('is-require');
       errors = true;
     }
   }
@@ -121,13 +121,13 @@ function checkFields(field, type, val) {
 function removeErrors(field) {
   if (field) {
     const label = field.closest('label');
-    if (label && label.classList.contains('isRequire')) {
-      label.classList.remove('isRequire');
+    if (label && label.classList.contains('is-require')) {
+      label.classList.remove('is-require');
     }
   } else {
     document
-      .querySelectorAll('.isRequire')
-      .forEach(el => el.classList.remove('isRequire'));
+      .querySelectorAll('.is-require')
+      .forEach(el => el.classList.remove('is-require'));
   }
 }
 
