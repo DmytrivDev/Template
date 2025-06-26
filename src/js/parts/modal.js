@@ -31,16 +31,16 @@ export function closeModal(modal) {
 function initCloseModal(modal) {
   if (initializedModals.has(modal)) return;
 
-  const modalContainer = modal.querySelector('.modal__container');
+  const containerModal = modal.querySelector('.container-modal');
   const btnsCloseModal = modal.querySelectorAll('.close-modal');
 
   btnsCloseModal.forEach(btn => {
     btn.addEventListener('click', () => closeModal(modal));
   });
 
-  if (modalContainer) {
-    modalContainer.addEventListener('click', event => {
-      if (event.target === modalContainer) {
+  if (containerModal) {
+    containerModal.addEventListener('click', event => {
+      if (event.target === containerModal) {
         closeModal(modal);
       }
     });
