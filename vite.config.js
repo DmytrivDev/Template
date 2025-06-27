@@ -8,6 +8,8 @@ export default defineConfig(({ command }) => {
   return {
     root: 'src',
 
+    publicDir: '../public',
+
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
@@ -48,6 +50,9 @@ export default defineConfig(({ command }) => {
             }
             if (/\.(woff2?|ttf|otf|eot)$/.test(name)) {
               return 'assets/fonts/[name].[hash].[ext]';
+            }
+            if (/\.(mp4|webm|ogg|mov|avi|mkv)$/.test(name)) {
+              return 'assets/videos/[name].[hash].[ext]';
             }
             if (ext === 'css') {
               return 'css/[name].[hash].[ext]';
