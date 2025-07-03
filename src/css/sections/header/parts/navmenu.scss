@@ -12,7 +12,14 @@
       a {
         display: block;
         transition: all 0.15s ease-in;
+
+        text-decoration-line: underline;
+        text-decoration-color: transparent;
+        text-decoration-thickness: 1px;
+        text-decoration-skip-ink: none;
+        text-underline-position: from-font;
         &:hover {
+          text-decoration-color: inherit;
         }
       }
 
