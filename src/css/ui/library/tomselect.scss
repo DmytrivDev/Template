@@ -1,0 +1,117 @@
+.wrapper {
+  .ts-wrapper {
+    min-height: auto;
+  }
+  .ts-dropdown,
+  .ts-control,
+  .ts-control input {
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+  .ts-wrapper.single {
+    .ts-control {
+      --ts-pr-caret: 1.5rem;
+      padding: 0.3125rem 0.5rem;
+      box-shadow: none;
+      border-radius: 0;
+      box-shadow: none;
+      // background-color: var(--);
+      // border: 0.0625rem solid var(--);
+      background-image: none;
+      transition: all 0.15s ease-in;
+      &:focus-visible {
+        outline: none;
+      }
+      &::after {
+        content: "";
+        margin: 0;
+        border: none;
+        position: absolute;
+        top: 0.6875rem;
+        right: 1rem !important;
+        width: 1rem;
+        height: 1rem;
+        background-size: 1rem 1rem;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: var(--selectVec);
+        transition: all 0.15s ease-in;
+      }
+      .item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        & + input {
+          display: none !important;
+        }
+      }
+      input {
+        cursor: pointer !important;
+      }
+    }
+    &.dropdown-active {
+      .ts-control {
+        // color: var(--);
+        // border-color: var(--);
+        // background-color: var(--) !important;
+        &::after {
+          margin: 0;
+          border: none;
+          transform: rotateX(180deg);
+        }
+      }
+    }
+    &.input-active {
+      .ts-control {
+        cursor: pointer;
+        // background-color: var(--);
+      }
+    }
+  }
+  .ts-dropdown.single {
+    // border: 0.0625rem solid var(--);
+    // background-color: var(--);
+    box-shadow: none;
+    border-radius: 0;
+    margin-top: 0.1875rem;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    &.is-open {
+      animation-name: dropdownOpen;
+    }
+
+    .ts-dropdown-content {
+      max-height: 8.75rem;
+      &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        display: none;
+      }
+    }
+
+    .active {
+      // background-color: var(--);
+      color: inherit;
+    }
+    .option {
+      padding: 0.3125rem 0.5rem;
+      transition: all 0.1s ease;
+    }
+  }
+
+  @keyframes dropdownOpen {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .wrapper {
+  }
+}

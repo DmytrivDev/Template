@@ -1,0 +1,210 @@
+.search__input {
+  display: flex;
+  justify-content: center;
+
+  & > div {
+    width: 100%;
+    max-width: 42rem;
+  }
+
+  span,
+  .facetwp-input-wrap {
+    display: block;
+    position: relative;
+  }
+
+  i,
+  .facetwp-icon {
+    cursor: pointer;
+    position: absolute;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 2.375rem;
+    transform: translateY(-50%);
+    transition: all 0.15s ease-in;
+
+    &::before {
+      content: "";
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-size: 1.5rem 1.5rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      // background-image: var(--);
+      transition: all 0.15s ease-in;
+    }
+  }
+
+  input,
+  .facetwp-search {
+    position: relative;
+    z-index: 10;
+    padding: 1.5rem 3rem 1.5rem 4.625rem;
+    width: 100%;
+    background-color: transparent;
+    font-size: 0.875rem;
+    line-height: 1.42;
+
+    border-radius: 8rem;
+    // border: 0.125rem solid var(--);
+    transition: all 0.15s ease-in;
+
+    &:hover {
+      // border-color: var(--);
+    }
+    &:focus {
+      // border-color: var(--) !important;
+    }
+
+    &::placeholder {
+      // color: var(--);
+    }
+  }
+}
+
+.search__radios {
+  overflow-x: auto;
+  display: flex;
+
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 0.75rem;
+  }
+
+  .facetwp-radio {
+    cursor: pointer;
+    text-wrap: nowrap;
+    white-space: nowrap;
+    border-radius: 2rem;
+    // border: 0.0625rem solid var(--);
+    padding: 0.6875rem 1.4375rem;
+    font-size: 1.125rem;
+    line-height: 1.33;
+    transition: all 0.15s ease-in;
+
+    &.checked {
+      // background-color: var(--) !important;
+      // border-color: var(--) !important ;
+      // color: var(--) !important;
+    }
+    &:hover {
+      // background-color: var(--);
+      // border-color: var(--);
+      // color: var(--);
+    }
+
+    .facetwp-counter {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .search__input {
+    & > div {
+      max-width: 35.75rem;
+    }
+
+    i,
+    .facetwp-icon {
+      left: 1.25rem;
+
+      &::before {
+        width: 1.25rem;
+        height: 1.25rem;
+        background-size: 1.25rem 1.25rem;
+      }
+    }
+
+    input,
+    .facetwp-search {
+      position: relative;
+      z-index: 10;
+      padding: 1.125rem 1.5rem 1.125rem 3rem;
+      border-width: 0.0625rem;
+
+      &:hover {
+        // border-color: var(--);
+      }
+    }
+  }
+
+  .search__radios {
+    margin: 0 -1rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & > div {
+      padding: 0 1rem;
+    }
+
+    & > div {
+      justify-content: stretch;
+      flex-wrap: nowrap;
+    }
+
+    .facetwp-radio {
+      padding: 0.6875rem 0.9375rem;
+      line-height: 1.5;
+
+      &:hover {
+        // background-color: var(--);
+        // border-color: var(--);
+        // color: var(--);
+      }
+    }
+  }
+}
+
+// <div class="search__input">
+//   <div
+//     class="facetwp-facet facetwp-facet-search facetwp-type-search"
+//     data-name="search"
+//     data-type="search"
+//   >
+//     <span class="facetwp-input-wrap">
+//       <i class="facetwp-icon"></i>
+//       <input
+//         type="text"
+//         class="facetwp-search"
+//         autocomplete="off"
+//         placeholder="Пошук за темою"
+//       />
+//     </span>
+//   </div>
+// </div>
+
+// <div class="search__radios">
+//   <div
+//     class="facetwp-facet facetwp-facet-catnews
+// facetwp-type-radio"
+//     data-name=""
+//     data-type="radio"
+//   >
+//     <div class="facetwp-radio checked" data-value="">всі
+// категорії</div>
+//     <div class="facetwp-radio" data-value="">
+//       <span class="facetwp-display-value">новини</span>
+//       <span class="facetwp-counter">(20)</span>
+//     </div>
+//     <div class="facetwp-radio" data-value="">
+//       <span class="facetwp-display-value">історії
+// успіху</span>
+//       <span class="facetwp-counter">(20)</span>
+//     </div>
+//     <div class="facetwp-radio" data-value="">
+//       <span class="facetwp-display-value">публікації</
+// span>
+//       <span class="facetwp-counter">(20)</span>
+//     </div>
+//   </div>
+// </div>

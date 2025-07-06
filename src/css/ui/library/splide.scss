@@ -1,0 +1,38 @@
+.wrapper {
+  .splide {
+    opacity: 0;
+    transition: all 0.2s 0.1s ease-in;
+    &.is-initialized {
+      opacity: 1;
+    }
+  }
+  .splide__list {
+    display: flex !important;
+  }
+  .splide__pagination {
+    position: static;
+    padding: 0;
+    bottom: 0;
+    gap: 0 0.5rem;
+    li {
+      display: flex;
+    }
+  }
+  .splide__pagination__page {
+    border-radius: 50%;
+    width: 0.625rem;
+    height: 0.625rem;
+    margin: 0;
+    background-color: var(--cw);
+    transition: all 0.15s ease-in;
+    &.is-active {
+      transform: none;
+      opacity: 0.3;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .wrapper {
+  }
+}

@@ -1,14 +1,22 @@
+/* Library */
+@import url('./variables/colors.scss');
+@import url('./variables/icons.scss');
+
 /* Settings */
 @import url('./settings/fonts.scss');
-@import url('./index/variables.scss');
-@import url('./index/icons.scss');
-
-@import url('./settings/default.scss');
+@import url('./settings/reset.scss');
 @import url('./settings/general.scss');
-@import url('./index/reset.scss');
+
+/* Library */
+@import url('./ui/library/accord.scss');
+@import url('./ui/library/splide.scss');
+@import url('./ui/library/tomselect.scss');
 
 /* Elements */
-@import url('./index/elements/elements.scss');
+@import url('./ui/elements/tl.scss');
+@import url('./ui/elements/txt.scss');
+@import url('./ui/elements/btns.scss');
+@import url('./ui/elements/pd.scss');
 
 /* Header */
 @import url('./sections/header/header.scss');
@@ -17,11 +25,13 @@
 @import url('./sections/header/parts/mobmenu.scss');
 
 /* Emb */
-@import url('./index/emb/emb.scss');
-@import url('./index/emb/embeded.scss');
+@import url('./ui/emb/emb.scss');
+@import url('./ui/emb/embeded.scss');
 
 /* Clusters */
-@import url('./index/clusters/clusters.scss');
+@import url('./ui/clusters/arrows.scss');
+@import url('./ui/clusters/pagin.scss');
+@import url('./ui/clusters/search.scss');
 
 /* Cards */
 /* @import url('./sections/cards/cards.scss'); */

@@ -1,0 +1,26 @@
+.btn-def {
+  flex-shrink: 0;
+  width: fit-content;
+  display: block;
+  text-align: center;
+  background-color: var(--cm);
+  color: var(--cw);
+  transition: all 0.15s ease-in;
+
+  &.wide {
+  }
+  &.stl-trn {
+  }
+  &.stl-clw {
+  }
+
+  &:hover {
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .btn-def {
+    &.wide {
+    }
+  }
+}

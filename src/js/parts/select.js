@@ -1,31 +1,22 @@
 import TomSelect from 'tom-select';
 import 'tom-select/dist/css/tom-select.default.css';
 
-const tomSelect = document.querySelectorAll('.tom-select');
+const tomSelect = document.querySelectorAll(
+  'select.tom-select:not(.tomselected)'
+);
 
 tomSelect?.forEach(select => {
-  const options = Array.from(select.options);
-
-  const sortedOptions = options.sort((a, b) => {
-    if (a.text === select.options[0].text) return -1;
-    if (b.text === select.options[0].text) return 1;
-    return a.text.localeCompare(b.text);
-  });
-
-  select.innerHTML = '';
-
-  sortedOptions.forEach(option => {
-    select.appendChild(option);
-  });
-
   new TomSelect(select, {
     create: false,
-    controlInput: false,
-    allowEmptyOption: true,
-    searchField: [],
+    maxOptions: 1000,
+    searchField: ['text'],
     render: {
       item: function (data, escape) {
-        return `<div>${select.dataset.txt} ${escape(data.text)}</div>`;
+        if (select.dataset.txt) {
+          return `<div>${select.dataset.txt} ${escape(data.text)}</div>`;
+        } else {
+          return `<div>${escape(data.text)}</div>`;
+        }
       },
     },
     onDropdownOpen: function () {
@@ -37,7 +28,7 @@ tomSelect?.forEach(select => {
   });
 });
 
-// <select class="tom-select" data-txt="All:">
+// <select class="tom-select" data-txt="All:" placeholder="Select option">
 //   <option value="">All</option>
 //   <option value="1">Nikola</option>
 //   <option value="2">Nikola Tesla</option>

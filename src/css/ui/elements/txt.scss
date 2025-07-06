@@ -1,0 +1,24 @@
+.txt1,
+.txt2,
+.txt3,
+.txt4 {
+  &.clw {
+    color: var(--cw);
+  }
+}
+
+// 18 = 14
+.txt1 {
+}
+// 16 = 16
+.txt2 {
+}
+// 16 = 14
+.txt3 {
+}
+// 14 = 14
+.txt4 {
+}
+
+@media screen and (max-width: 960px) {
+}
