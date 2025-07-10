@@ -24,10 +24,6 @@
 @import url('./sections/header/parts/actions.scss');
 @import url('./sections/header/parts/mobmenu.scss');
 
-/* Emb */
-@import url('./ui/emb/emb.scss');
-@import url('./ui/emb/embeded.scss');
-
 /* Clusters */
 @import url('./ui/clusters/arrows.scss');
 @import url('./ui/clusters/pagin.scss');
@@ -39,6 +35,7 @@
 /* General */
 @import url('./sections/general/modal.scss');
 @import url('./sections/general/banner.scss');
+@import url('./sections/general/embeded.scss');
 
 /* Home */
 @import url('./sections/home/hero.scss');
