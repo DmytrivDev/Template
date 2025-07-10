@@ -10,6 +10,7 @@ import './parts/modal.js';
 // import './parts/banner.js';
 // import './parts/splidecust.js';
 // import './parts/splide.js';
+// import './parts/sidebar.js';
 // import './parts/forms.js';
 // import './parts/select.js';
 // import './parts/clipboard.js';
