@@ -58,10 +58,18 @@
   z-index: 100;
   top: 2rem;
   right: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: all 0.15s ease-in;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-size: 2rem 2rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+    // background-image: var(--closeModal);
+  }
   &:hover {
     opacity: 0.5;
   }

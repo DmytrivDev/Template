@@ -70,6 +70,19 @@ dd {
   padding: 0;
 }
 
+fieldset {
+  position: relative;
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin-inline: 0;
+  padding-inline: 0;
+  padding-block: 0;
+}
+legend {
+  padding-inline: 0;
+}
+
 input {
   outline: none;
   border: none;
