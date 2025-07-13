@@ -6,6 +6,8 @@ const tomSelect = document.querySelectorAll(
 );
 
 tomSelect?.forEach(select => {
+  const noResultsText = select.dataset.noresults || 'No results found';
+
   new TomSelect(select, {
     create: false,
     maxOptions: 1000,
@@ -18,6 +20,9 @@ tomSelect?.forEach(select => {
           return `<div>${escape(data.text)}</div>`;
         }
       },
+      no_results: function () {
+        return `<div class="no-results">${noResultsText}</div>`;
+      },
     },
     onDropdownOpen: function () {
       this.dropdown.classList.add('is-open');
@@ -28,7 +33,7 @@ tomSelect?.forEach(select => {
   });
 });
 
-// <select class="tom-select" data-txt="All:" placeholder="Select option">
+// <select class="tom-select" data-noresults="Результати не знайдені" data-txt="All:" placeholder="Select option">
 //   <option value="">All</option>
 //   <option value="1">Nikola</option>
 //   <option value="2">Nikola Tesla</option>
