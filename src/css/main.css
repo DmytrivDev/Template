@@ -13,10 +13,10 @@
 @import url('./ui/library/tomselect.scss');
 
 /* Elements */
+@import url('./ui/elements/pd.scss');
 @import url('./ui/elements/tl.scss');
 @import url('./ui/elements/txt.scss');
 @import url('./ui/elements/btns.scss');
-@import url('./ui/elements/pd.scss');
 
 /* Header */
 @import url('./sections/header/header.scss');
