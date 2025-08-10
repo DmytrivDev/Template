@@ -14,9 +14,11 @@
   }
 
   a {
-    text-decoration: underline !important;
+    text-decoration: underline;
     text-underline-position: under;
-    text-decoration-thickness: 1px !important;
+    text-decoration-thickness: 1px;
+    text-decoration-skip-ink: none;
+    text-underline-position: from-font;
   }
 
   b,
