@@ -9,6 +9,9 @@
       opacity: 1;
     }
   }
+  .splide__track {
+    overflow: visible;
+  }
   .splide__list {
     display: flex !important;
   }
