@@ -20,6 +20,8 @@
   &.is-disabled {
     cursor: no-drop;
     &:hover {
+      &::before {
+      }
     }
   }
 
@@ -32,10 +34,11 @@
     background-position: center center;
     background-repeat: no-repeat;
     // background-image: var(--);
-    transition: all 0.15s ease-in;
   }
   &:hover {
-    // background-color: var(--);
+    &::before {
+      // background-color: var(--);
+    }
   }
 }
 .arrows__next {
