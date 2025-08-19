@@ -1,9 +1,38 @@
+.footer__bottom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.625rem 2rem;
+
+  a {
+    display: block;
+    word-break: break-word;
+    transition: all 0.15s ease-in;
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-decoration-skip-ink: none;
+    text-underline-position: from-font;
+    &:hover {
+      text-decoration-color: inherit;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+}
+
 @media screen and (max-width: 960px) {
-	.footer {
-	}
+  .footer {
+  }
 }
 
 @media screen and (max-width: 768px) {
-	.footer {
-	}
+  .footer {
+  }
 }
